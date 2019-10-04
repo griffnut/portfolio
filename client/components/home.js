@@ -1,8 +1,15 @@
 import React from 'react'
+import '../../public/style.scss'
 
 const Home = () => {
   return (
-    <div>Hello, world.</div>
+    <>
+      <div class = 'landing'>
+        <h2>hello world</h2>
+      </div>
+
+      <p>yes yes</p>
+    </>
   )
 }
 
