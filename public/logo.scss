@@ -1,0 +1,88 @@
+$fur: #fff;
+$eyes: #333;
+$frames: 5px;
+
+@mixin ear($rot) {
+  position: absolute;
+  height: 70%;
+  width: 25%;
+  border-radius: 50% 50% 0 0;
+  background-color: $fur;
+  transform: rotate($rot);
+}
+
+@mixin eye() {
+  position: absolute;
+  height: 7%;
+  width: 7%;
+  top: 65%;
+  border-radius: 50%;
+  background-color: $eyes;
+}
+
+@mixin frame() {
+  position: absolute;
+  z-index: 5;
+  top: 55%;
+  width: 25%;
+  height: 20%;
+  border-radius: 10% 10% 40% 40%;
+  border: $frames solid $eyes;
+}
+
+.bundt {
+  position: relative;
+  height: 150px;
+  width: 150px;
+
+  .head {
+    position: absolute;
+    height: 65%;
+    width: 80%;
+    top: 35%;
+    left: 10%;
+    border-radius: 50%;
+    background-color: $fur;
+  }
+
+  .l-ear {
+    @include ear(-5deg);
+    left: 20%;
+  }
+
+  .r-ear {
+    @include ear(5deg);
+    right: 20%;
+  }
+
+  .l-eye {
+    @include eye();
+    left: 30%; 
+  }
+
+  .r-eye {
+    @include eye();
+    right: 30%;
+  }
+
+  .l-frame {
+    @include frame();
+    left: 15%;
+  }
+
+  .r-frame {
+    @include frame();
+    right: 15%;
+  }
+
+  .bridge {
+    position: absolute;
+    z-index: 3;
+    left: 45%;
+    top: 60%;
+    width: 8%;
+    height: $frames;
+    background-color: $eyes;
+    transition: top .5s;
+  }
+}
