@@ -1,5 +1,6 @@
 $fur: #fff;
 $eyes: #333;
+$glasses: #333;
 $frames: 5px;
 
 @mixin ear($rot) {
@@ -27,7 +28,7 @@ $frames: 5px;
   width: 25%;
   height: 20%;
   border-radius: 10% 10% 40% 40%;
-  border: $frames solid $eyes;
+  border: $frames solid $glasses;
 }
 
 .bundt {
@@ -82,7 +83,7 @@ $frames: 5px;
     top: 60%;
     width: 8%;
     height: $frames;
-    background-color: $eyes;
+    background-color: $glasses;
     transition: top .5s;
   }
 }

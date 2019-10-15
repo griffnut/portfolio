@@ -1,16 +1,48 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-const Navbar = () => {
-  return (
-    <nav>
-      <div class = 'links'>
-        <NavLink to = '#about'>about</NavLink>
-        <NavLink to = '#projects'>projects</NavLink>
-        <NavLink to = '#contacts'>contact</NavLink>
+class Navbar extends React.Component {
+  constructor(props){
+    super(props)
+
+    this.state = {
+      isHidden: false
+    }
+
+    this.hideNav = this.hideNav.bind(this)
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.hideNav)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.hideNav)
+  }
+
+  hideNav() {
+    let { isHidden } = this.state
+
+    window.scrollY > this.prev
+    ? !isHidden && this.setState({ isHidden: true })
+    : isHidden && this.setState({ isHidden: false })
+
+    this.prev = window.scrollY
+  }
+
+  render() {
+    const hide = this.state.isHidden ? 'hide' : ''
+
+    return (
+      <div className = {`nav ${hide}`}>
+        <div className = 'links'>
+          <a href = '#about'>about</a>
+          <a href = '#projects'>projects</a>
+          <a href = '#contacts'>contact</a>
+        </div>
       </div>
-    </nav>
-  )
+    )    
+  }
 }
 
 export default Navbar
