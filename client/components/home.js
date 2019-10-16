@@ -13,7 +13,7 @@ const Home = () => {
         <div className = 'about'>
           <h3>My name is Lily Li, a fullstack/frontend developer.</h3>
 
-          <p>I've always been drawn to creativity ever since I was a child from drawing to dabbling with HTML and CSS on Neopets. From then, I have always wanted to create something fun, engaging, and convenient using code. I pursued the fast route of taking a bootcamp to learn how to create my own website.</p>
+          <p>I've always been drawn to coding ever since I was a child dabbling with HTML and CSS on Neopets in an attempt to make my pages stand out. From then, I have always wanted to create something fun, engaging, and convenient.</p>
 
           <b>frontend</b>
           <p>javascript // html5 // css // scss // react-redux //threejs // babylonjs</p>

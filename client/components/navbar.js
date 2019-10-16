@@ -6,10 +6,12 @@ class Navbar extends React.Component {
     super(props)
 
     this.state = {
-      isHidden: false
+      isHidden: false,
+      links: ['about', 'projects']
     }
 
     this.hideNav = this.hideNav.bind(this)
+    this.scrollTo = this.scrollTo.bind(this)
   }
 
   componentDidMount() {
@@ -30,15 +32,24 @@ class Navbar extends React.Component {
     this.prev = window.scrollY
   }
 
+  scrollTo(id) {
+    const section = document.getElementById(id)
+    console.log(section)
+
+    if (section) section.scrollIntoView({ behavior: 'smooth' })
+  }
+
   render() {
     const hide = this.state.isHidden ? 'hide' : ''
 
     return (
       <div className = {`nav ${hide}`}>
         <div className = 'links'>
-          <a href = '#about'>about</a>
-          <a href = '#projects'>projects</a>
-          <a href = '#contacts'>contact</a>
+          {
+            this.state.links.map(link => 
+              <div key = {link} onClick = {() => this.scrollTo(link)}>{link}</div>
+            )
+          }
         </div>
       </div>
     )    
