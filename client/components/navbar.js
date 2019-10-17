@@ -1,5 +1,6 @@
 import React from 'react'
-import '../../public/navbar.scss'
+import smoothscroll from 'smoothscroll-polyfill'
+import '../styles/navbar.scss'
 
 class Navbar extends React.Component {
   constructor(props){
@@ -15,6 +16,7 @@ class Navbar extends React.Component {
   }
 
   componentDidMount() {
+    smoothscroll.polyfill(); //for older browsers i.e. internet explorer
     window.addEventListener('scroll', this.hideNav)
   }
 

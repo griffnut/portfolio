@@ -1,5 +1,4 @@
 import React from 'react'
-import '../../public/logo.scss'
 import { Logo, Navbar } from './'
 
 const Home = () => {

@@ -1,4 +1,5 @@
 import React from 'react'
+import '../styles/logo.scss'
 
 const Logo = () => 
   <div className = 'hello bundt'>
