@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import '../../public/navbar.scss'
 
 class Navbar extends React.Component {
   constructor(props){
@@ -39,11 +39,23 @@ class Navbar extends React.Component {
     if (section) section.scrollIntoView({ behavior: 'smooth' })
   }
 
+  hamburger() {
+    const nav = document.getElementById('nav')
+
+    if (nav.className === 'nav ') {
+      nav.className += 'responsive'
+    } else {
+      nav.className = 'nav '
+    }
+  }
+
   render() {
     const hide = this.state.isHidden ? 'hide' : ''
 
     return (
-      <div className = {`nav ${hide}`}>
+      <div className = {`nav ${hide}`} id = 'nav'>
+        <div className = 'logo'>Lily Li</div>
+        <div className = 'icon' onClick = {() => this.hamburger()} />
         <div className = 'links'>
           {
             this.state.links.map(link => 

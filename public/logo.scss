@@ -2,14 +2,17 @@ $fur: #d3dbda;
 $eyes: #353f3d;
 $glasses: #353f3d;
 $frames: 5px;
+$t-time: .5s;
 
 @mixin ear($rot) {
   position: absolute;
   height: 70%;
   width: 25%;
+  top: 0;
   border-radius: 50% 50% 0 0;
   background-color: $fur;
   transform: rotate($rot);
+  transition: transform .5s, top .5s;
 }
 
 @mixin eye() {
@@ -19,6 +22,7 @@ $frames: 5px;
   top: 65%;
   border-radius: 50%;
   background-color: $eyes;
+  transition: top .5s, height .5s;
 }
 
 @mixin frame() {
@@ -29,6 +33,7 @@ $frames: 5px;
   height: 20%;
   border-radius: 10% 10% 40% 40%;
   border: $frames solid $glasses;
+  transition: top .5s;
 }
 
 .bundt {
@@ -47,12 +52,12 @@ $frames: 5px;
   }
 
   .l-ear {
-    @include ear(-5deg);
+    @include ear(-8deg);
     left: 20%;
   }
 
   .r-ear {
-    @include ear(5deg);
+    @include ear(8deg);
     right: 20%;
   }
 
@@ -85,5 +90,25 @@ $frames: 5px;
     height: $frames;
     background-color: $glasses;
     transition: top .5s;
+  }
+
+  &:hover {
+    .r-ear, .l-ear {
+      top: 5%;
+      transform: rotate(0);
+    }
+
+    .l-frame, .r-frame {
+      top: 52%;
+    }
+
+    .r-eye, .l-eye {
+      top: 62%;
+      height: 4%;
+    }
+
+    .bridge {
+      top: 57%;
+    }
   }
 }
