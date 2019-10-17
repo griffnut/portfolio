@@ -1,0 +1,118 @@
+$background: #353f3d;
+$text: #d3dbda;
+
+.nav {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 15;
+  transition: .7s all;
+  background-color: $background;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo {
+    padding: 15px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 15pt;
+  }
+
+  .links {
+    padding: 15px;
+    font-size: 10pt;
+    display: flex;
+    background-color: $background;
+
+    div {
+      text-decoration: none;
+      text-transform: uppercase;
+      color: $text;
+      padding-left: 10px;
+      transition: .2s;
+      cursor: pointer;
+    }
+
+    div:hover {
+      color: #aaa;
+    }
+  }
+
+  .icon {
+    display: none;
+  }
+}
+
+.hide {
+  top: -60px;
+}
+
+@media screen and (max-width: 600px) {
+  .nav { 
+    display: inline-block;
+    height: 58px;
+
+    .links {
+      flex-direction: column;
+      transform: translateX(-150%);
+      transition: transform .5s;
+      height: 100vh;
+      font-size: 18pt;
+    }
+
+    .icon {
+      display: inline-block;
+      position: absolute;
+      right: 0;
+      top: 0;
+      margin: 25px 15px;
+      width: 30px;
+      height: 5px;
+      background-color: $text;
+      transition-property: background-color, transform;
+      transition-duration: .3s;
+    
+      &:before,
+      &:after {
+        content:'';
+        display:block;
+        width:30px;
+        height:5px;
+        position: absolute;
+        background: $text;
+        transition-property: margin, transform;
+        transition-duration: .5s;
+        
+      }
+    
+      &:before {
+        margin-top:-10px;
+      }
+    
+      &:after {
+        margin-top:10px;
+      }
+    }
+
+    &.responsive {
+      .icon {
+        background-color: #ffffff00;
+
+        &:before {
+          margin-top:0;
+          transform:rotate(45deg);
+        }
+    
+        &:after {
+          margin-top:0;
+          transform:rotate(-45deg);
+        }
+      }
+
+      .links {
+        transform: translateX(0);
+      }
+    }
+  }
+}
