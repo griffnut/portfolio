@@ -23,6 +23,8 @@ const Home = () => {
       </div>
 
       <Projects />
+
+      <div className = 'footer'>Copyright © 2019 Lily Li</div>
     </>
   )
 }

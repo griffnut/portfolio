@@ -169,6 +169,11 @@ $background-project: #404b49;
           text-transform: lowercase;
           color: $text-muted;
           text-decoration: none;
+          transition: 1s;
+        }
+
+        a:hover {
+          letter-spacing: 2px;
         }
       }
 
@@ -199,6 +204,14 @@ $background-project: #404b49;
       }
     }
   }
+}
+
+.footer {
+  background-color: $background-project;
+  padding: 15px;
+  text-align: center;
+  color: $text-muted;
+  font-size: 10pt;
 }
 
 /***** SMALL SCREENS *****/
