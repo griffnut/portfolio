@@ -2,16 +2,9 @@ language: node_js
 node_js:
   - node
 
-install:
-  - npm ci
-
-  before_deploy:
-  - npm run build-client # make the bundle
-  - rm -rf node_modules # omit from the tarball, since we skip cleanup
-
 deploy:
-  skip_cleanup: true # prevents travis from deleting the build
+  cleanup: false # prevents travis from deleting the build
   provider: heroku
   app: lily-li
   api_key:
-    secure: "F85AW/UZQwdeh1+ZLRyWy7vxrhOYAXOp9JZs2IBcc/YpIh81t1FoaPwO5n1jUx/ntiCGJ1PZ3SWLcZUatG3Jg7IirvYGJiUAPPM16t8gbP/UxsaYCWAw1P0JCq8m9mRtnOOZmgtgeBI7fX9Eo4eksUL122do7Bvz9p6sLLw7AYxiraOn1YO3st+onELPcUTcVmMrF1lNIyRxfdMM1q3/iwRB1mfjIH7KM9WdZC764mIqwz5fUjzWQYQVwOkBZVeXEKjnaHBOpP3owcXnjI25+0CKlTlT4/VVEly+rWJg5jtFit+WWYK62IoFYUws0dhMiJ/jJkWO4iYKu2objtcHQWoCZfzOpC8tipSji7JKN3Y2DtFApUJx/1JRdhr++MZ2FYw6twK8+SKQ/EUOI6TMjdoRRMk5ud7JHlWcUymgWlEzXiSElB9/tAYvWNa1z3nB/wV2IlGzu8ArbP2PXrPcDxit/jdcgpTDNvwYaiu28XcZTeZ5jY5MKbtx+SwNWVxi3GkSgsdyFtqDqu9OOmBgKLzNHTSyPfSilKfdJzpo7YIO7Z+ApDbD+MdIblvO1Nwo9QIe2nks/3A+cu2Hk1dIu9qAbpMFE4WMoN53j7LndSG7Av2r900HGTuaj5OY4gpHIzBmh87Qxfy8Dh+kpcHTAgzvbepq2CeNXACITkExyfk="
+    secure: F85AW/UZQwdeh1+ZLRyWy7vxrhOYAXOp9JZs2IBcc/YpIh81t1FoaPwO5n1jUx/ntiCGJ1PZ3SWLcZUatG3Jg7IirvYGJiUAPPM16t8gbP/UxsaYCWAw1P0JCq8m9mRtnOOZmgtgeBI7fX9Eo4eksUL122do7Bvz9p6sLLw7AYxiraOn1YO3st+onELPcUTcVmMrF1lNIyRxfdMM1q3/iwRB1mfjIH7KM9WdZC764mIqwz5fUjzWQYQVwOkBZVeXEKjnaHBOpP3owcXnjI25+0CKlTlT4/VVEly+rWJg5jtFit+WWYK62IoFYUws0dhMiJ/jJkWO4iYKu2objtcHQWoCZfzOpC8tipSji7JKN3Y2DtFApUJx/1JRdhr++MZ2FYw6twK8+SKQ/EUOI6TMjdoRRMk5ud7JHlWcUymgWlEzXiSElB9/tAYvWNa1z3nB/wV2IlGzu8ArbP2PXrPcDxit/jdcgpTDNvwYaiu28XcZTeZ5jY5MKbtx+SwNWVxi3GkSgsdyFtqDqu9OOmBgKLzNHTSyPfSilKfdJzpo7YIO7Z+ApDbD+MdIblvO1Nwo9QIe2nks/3A+cu2Hk1dIu9qAbpMFE4WMoN53j7LndSG7Av2r900HGTuaj5OY4gpHIzBmh87Qxfy8Dh+kpcHTAgzvbepq2CeNXACITkExyfk=
