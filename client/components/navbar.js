@@ -36,9 +36,14 @@ class Navbar extends React.Component {
 
   scrollTo(id) {
     const section = document.getElementById(id)
-    console.log(section)
 
-    if (section) section.scrollIntoView({ behavior: 'smooth' })
+    if (section) {
+      if (document.getElementById('nav').className === 'nav responsive') {
+        nav.className = 'nav '
+      }
+      section.scrollIntoView({ behavior: 'smooth' })
+      
+    }   
   }
 
   hamburger() {
