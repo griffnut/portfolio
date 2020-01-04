@@ -8,7 +8,6 @@ class Navbar extends React.Component {
 
     this.state = {
       isHidden: false,
-      links: ['about', 'projects']
     }
 
     this.hideNav = this.hideNav.bind(this)
@@ -16,7 +15,7 @@ class Navbar extends React.Component {
   }
 
   componentDidMount() {
-    smoothscroll.polyfill(); //for older browsers i.e. internet explorer
+    smoothscroll.polyfill(); //enable smoothscrolls for other browsers i.e. internet explorer
     window.addEventListener('scroll', this.hideNav)
   }
 
@@ -27,7 +26,7 @@ class Navbar extends React.Component {
   hideNav() {
     let { isHidden } = this.state
 
-    window.scrollY > this.prev
+    window.scrollY > this.prev && document.documentElement.scrollTop > 60
     ? !isHidden && this.setState({ isHidden: true })
     : isHidden && this.setState({ isHidden: false })
 
@@ -39,7 +38,7 @@ class Navbar extends React.Component {
 
     if (section) {
       if (document.getElementById('nav').className === 'nav responsive') {
-        nav.className = 'nav '
+        nav.className = 'nav'
       }
       section.scrollIntoView({ behavior: 'smooth' })
       
@@ -49,23 +48,23 @@ class Navbar extends React.Component {
   hamburger() {
     const nav = document.getElementById('nav')
 
-    if (nav.className === 'nav ') {
-      nav.className += 'responsive'
+    if (nav.className === 'nav') {
+      nav.className += ' responsive'
     } else {
-      nav.className = 'nav '
+      nav.className = 'nav'
     }
   }
 
   render() {
-    const hide = this.state.isHidden ? 'hide' : ''
+    const hide = this.state.isHidden ? ' hide' : ''
 
     return (
-      <div className = {`nav ${hide}`} id = 'nav'>
+      <div className = {`nav${hide}`} id = 'nav'>
         <div className = 'logo'>Lily Li</div>
         <div className = 'icon' onClick = {() => this.hamburger()} />
         <div className = 'links'>
           {
-            this.state.links.map(link => 
+            this.props.links.map(link => 
               <div key = {link} onClick = {() => this.scrollTo(link)}>{link}</div>
             )
           }

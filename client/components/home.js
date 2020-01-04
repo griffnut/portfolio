@@ -4,7 +4,7 @@ import { Logo, Navbar, Projects } from './'
 const Home = () => {
   return (
     <>
-      <Navbar />
+      <Navbar links = {['about', 'projects']} />
       <div className = 'landing'  id = 'about'>
         <Logo />
         <h2>hello world</h2>

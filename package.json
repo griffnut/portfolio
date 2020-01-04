@@ -5,11 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha \"./client/**/*.spec.js\" --require @babel/polyfill --require @babel/register",
-    "deploy": "script/build",
     "start": "node server",
     "build": "webpack",
     "start-server": "nodemon server -e html,js,scss --ignore public --ignore client",
-    "build-client-watch": "webpack -w"
+    "build-watch": "webpack -w"
   },
   "author": "",
   "license": "ISC",
