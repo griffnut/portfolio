@@ -1,10 +1,10 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
-// const isDevelopment = process.env.NODE_ENV === 'development'
-const isDevelopment = true;
+const isDev = process.env.NODE_ENV === 'development'
 
 module.exports = {
-  mode: 'development',
+  mode: isDev ? 'development' : 'production',
   entry: [
     '@babel/polyfill', // enables async-await
     './client/index.js'
@@ -16,7 +16,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.scss']
   },
-  devtool: 'source-map',
+  devtool: isDev ? 'source-map' : false,
   watchOptions: {
     ignored: /node_modules/
   },
@@ -30,18 +30,18 @@ module.exports = {
       {
         test: /\.module\.s(a|c)ss$/,
         loader: [
-          isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
+          isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
               modules: true,
-              sourceMap: isDevelopment
+              sourceMap: isDev
             }
           },
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: isDevelopment
+              sourceMap: isDev
             }
           }
         ]
@@ -50,12 +50,12 @@ module.exports = {
         test: /\.s(a|c)ss$/,
         exclude: /\.module.(s(a|c)ss)$/,
         loader: [
-          isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
+          isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: isDevelopment
+              sourceMap: isDev
             }
           }
         ]
@@ -64,8 +64,11 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: isDevelopment ? '[name].css' : '[name.[hash].css',
-      chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css'
+      filename: isDev ? './public/[name].css' : './public/styles.css',
+      chunkFilename: isDev ? './public/[id].css' : './public/[hash].css'
     })
-  ]
+  ],
+  optimization: {
+    minimizer: [new UglifyJsPlugin()]
+  }
 }

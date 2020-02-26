@@ -2,6 +2,8 @@ import React from 'react'
 import { Logo, Navbar, Projects } from './'
 
 const Home = () => {
+  const year = new Date().getFullYear()
+
   return (
     <>
       <Navbar links = {['about', 'projects']} />
@@ -24,7 +26,7 @@ const Home = () => {
 
       <Projects />
 
-      <div className = 'footer'>Copyright © 2019 Lily Li</div>
+      <div className = 'footer'>© {year} Lily Li</div>
     </>
   )
 }

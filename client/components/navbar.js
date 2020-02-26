@@ -62,13 +62,13 @@ class Navbar extends React.Component {
       <div className = {`nav${hide}`} id = 'nav'>
         <div className = 'logo'>Lily Li</div>
         <div className = 'icon' onClick = {() => this.hamburger()} />
-        <div className = 'links'>
+        <ul className = 'links'>
           {
             this.props.links.map(link => 
-              <div key = {link} onClick = {() => this.scrollTo(link)}>{link}</div>
+              <li key = {link} onClick = {() => this.scrollTo(link)}>{link}</li>
             )
           }
-        </div>
+        </ul>
       </div>
     )    
   }

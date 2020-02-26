@@ -19,13 +19,15 @@ $text: #d3dbda;
     font-size: 15pt;
   }
 
-  .links {
+  ul.links {
     padding: 15px;
     font-size: 10pt;
     display: flex;
     background-color: $background;
+    list-style-type: none;
+    font-weight: bold;
 
-    div {
+    li {
       text-decoration: none;
       text-transform: uppercase;
       color: $text;
@@ -34,7 +36,7 @@ $text: #d3dbda;
       cursor: pointer;
     }
 
-    div:hover {
+    li:hover {
       color: #aaa;
     }
   }
@@ -53,7 +55,7 @@ $text: #d3dbda;
     display: inline-block;
     height: 58px;
 
-    .links {
+    ul.links {
       flex-direction: column;
       transform: translateX(-150%);
       transition: transform .5s;
@@ -61,39 +63,46 @@ $text: #d3dbda;
       font-size: 18pt;
     }
 
-    .icon {
-      display: inline-block;
-      position: absolute;
-      right: 0;
-      top: 0;
-      margin: 25px 15px;
-      width: 30px;
-      height: 5px;
-      background-color: $text;
-      transition-property: background-color, transform;
-      transition-duration: .3s;
-    
-      &:before,
-      &:after {
-        content:'';
-        display:block;
-        width:30px;
-        height:5px;
-        position: absolute;
-        background: $text;
-        transition-property: margin, transform;
-        transition-duration: .5s;
-        
-      }
-    
-      &:before {
-        margin-top:-10px;
-      }
-    
-      &:after {
-        margin-top:10px;
-      }
-    }
+    .hamburger {
+			content: "";
+			display: inline-block;
+			position: absolute;
+			right: 0;
+			top: 0;
+			height: 60px;
+			width: 60px;
+			z-index: 3;
+
+			.icon {
+				display: inline-block;
+				margin: 25px 15px;
+				width: 30px;
+				height: 5px;
+				background-color: $text;
+				transition-property: background-color, transform;
+				transition-duration: 0.3s;
+
+				&:before,
+				&:after {
+					content: "";
+					display: block;
+					width: 30px;
+					height: 5px;
+					position: absolute;
+					background: $text;
+					transition-property: margin, transform;
+					transition-duration: 0.5s;
+				}
+
+				&:before {
+					margin-top: -10px;
+				}
+
+				&:after {
+					margin-top: 10px;
+				}
+			}
+		}
 
     &.responsive {
       .icon {
@@ -110,7 +119,7 @@ $text: #d3dbda;
         }
       }
 
-      .links {
+      ul.links {
         transform: translateX(0);
       }
     }

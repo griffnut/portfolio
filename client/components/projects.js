@@ -45,7 +45,7 @@ const Projects = () => {
         <div className = 'about'>
           <div className = 'title'>
             <h2>Pandance</h2>
-            <h3><a href='http://pandance.herokuapp.com/'>pdandance.herokuapp.com</a></h3>
+            <h3><a href='http://pandance.herokuapp.com/'>pandance.herokuapp.com</a></h3>
           </div>
 
           <div>
