@@ -9,7 +9,7 @@ const Projects = () => {
         <div className = 'about'>
           <div className = 'title'>
             <h2>Venus Fly Trap</h2>
-            <h3><a href='http://venus-fly-trap.herokuapp.com/'>venus-fly-trap.herokuapp.com</a></h3>
+            <a href='http://venus-fly-trap.herokuapp.com/'>venus-fly-trap.herokuapp.com</a>
           </div>
 
           <div>
@@ -27,7 +27,7 @@ const Projects = () => {
         <div className = 'about'>
           <div className = 'title'>
             <h2>Meoware</h2>
-            <h3><a href='https://github.com/griffnut/meoware'>github.com/griffnut/meoware</a></h3>
+            <a href='https://github.com/griffnut/meoware'>github.com/griffnut/meoware</a>
           </div>
 
           <div>
@@ -45,7 +45,7 @@ const Projects = () => {
         <div className = 'about'>
           <div className = 'title'>
             <h2>Pandance</h2>
-            <h3><a href='http://pandance.herokuapp.com/'>pandance.herokuapp.com</a></h3>
+            <a href='http://pandance.herokuapp.com/'>pandance.herokuapp.com</a>
           </div>
 
           <div>

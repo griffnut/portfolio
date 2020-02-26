@@ -1,5 +1,6 @@
 $background: #353f3d;
 $text: #d3dbda;
+$link-hover: #606769;
 
 .nav {
   display: flex;
@@ -32,13 +33,21 @@ $text: #d3dbda;
       text-transform: uppercase;
       color: $text;
       padding-left: 10px;
-      transition: .2s;
       cursor: pointer;
+
+      &::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 2px;
+        background: $link-hover;
+        transition: width .3s;
+      }
     }
 
-    li:hover {
-      color: #aaa;
-    }
+    li:hover::after {
+      width: 100%;
+    }    
   }
 
   .icon {

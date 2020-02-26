@@ -17,10 +17,10 @@ const Home = () => {
           <p>I've always been drawn to coding ever since I was a child dabbling with HTML and CSS on Neopets in an attempt to make my pages stand out. From then, I have always wanted to create something fun, engaging, and convenient.</p>
 
           <b>frontend</b>
-          <p>javascript // html5 // css // scss // react-redux //threejs // babylonjs</p>
+          <p>javascript // html5 // css // scss // react-redux // threejs // babylonjs</p>
 
           <b>backend</b>
-          <p>node.js // express // postgresql // sequelize</p>
+          <p>node.js // express // postgresql // sequelize // mongodb</p>
         </div>
       </div>
 

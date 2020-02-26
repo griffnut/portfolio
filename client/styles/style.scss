@@ -1,5 +1,6 @@
 $text: #d3dbda;
 $text-muted: #97a0a3;
+$link-hover: #606769;
 $background: #353f3d;
 $background-project: #404b49;
 
@@ -164,16 +165,31 @@ $background-project: #404b49;
           color: $text;
         }
   
-        h3, a {
+        a {
+          display: inline-block;
           font-size: 13pt;
           text-transform: lowercase;
           color: $text-muted;
+          font-weight: bold;
           text-decoration: none;
-          transition: 1s;
+          transition: color .3s;
+
+          &::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: $link-hover;
+            transition: width .3s;
+          }
         }
 
         a:hover {
-          letter-spacing: 2px;
+          color: $text;
+
+          &::after {
+            width: 100%;
+          }
         }
       }
 
