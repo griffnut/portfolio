@@ -8,6 +8,6 @@ configure({ adapter: new Adapter() });
 
 describe('test function', function() {
   it('passing test', function() {
-    expect(true).to.equal(true);
-  });
-});
+    expect(true).to.equal(true)
+  })
+})

@@ -15,7 +15,7 @@ class Navbar extends React.Component {
   }
 
   componentDidMount() {
-    smoothscroll.polyfill(); //enable smoothscrolls for other browsers i.e. internet explorer
+    smoothscroll.polyfill() //enable smoothscrolls for other browsers i.e. internet explorer
     window.addEventListener('scroll', this.hideNav)
   }
 
@@ -70,7 +70,7 @@ class Navbar extends React.Component {
           }
         </ul>
       </div>
-    )    
+    )
   }
 }
 
