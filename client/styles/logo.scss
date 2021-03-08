@@ -1,7 +1,5 @@
 $fur: #d3dbda;
-$eyes: #353f3d;
-$glasses: #353f3d;
-$frames: 5px;
+$dark: #353f3d;
 $t-time: .5s;
 
 @mixin ear($rot) {
@@ -12,28 +10,27 @@ $t-time: .5s;
   border-radius: 50% 50% 0 0;
   background-color: $fur;
   transform: rotate($rot);
-  transition: transform .5s, top .5s;
+  transition: transform .5s, .2s;
 }
 
 @mixin eye() {
   position: absolute;
-  height: 7%;
-  width: 7%;
+  height: 10px;
+  width: 10px;
   top: 65%;
   border-radius: 50%;
-  background-color: $eyes;
-  transition: top .5s, height .5s;
+  background-color: $dark;
+  transition: height .5s, .2s;
 }
 
 @mixin frame() {
   position: absolute;
   z-index: 5;
   top: 55%;
-  width: 25%;
-  height: 20%;
+  width: 40px;
+  height: 30px;
   border-radius: 10% 10% 40% 40%;
-  border: $frames solid $glasses;
-  transition: top .5s;
+  border: 5px solid $dark;
 }
 
 .bundt {
@@ -71,26 +68,32 @@ $t-time: .5s;
     right: 30%;
   }
 
-  .l-frame {
-    @include frame();
-    left: 15%;
-  }
-
-  .r-frame {
-    @include frame();
-    right: 15%;
-  }
-
-  .bridge {
+  .glasses {
     position: absolute;
-    z-index: 3;
-    left: 46%;
-    top: 60%;
-    width: 8%;
-    height: $frames;
-    background-color: $glasses;
-    transition: top .5s;
-  }
+    width: 150px;
+    height: 150px;
+    transition: .2s;
+    
+    .l-frame {
+      @include frame();
+      left: 15%;
+    }
+  
+    .r-frame {
+      @include frame();
+      right: 15%;
+    }
+  
+    .bridge {
+      position: absolute;
+      z-index: 3;
+      left: 46%;
+      top: 60%;
+      width: 10px;
+      height: 5px;
+      background-color: $dark;
+    }
+  }  
 
   &:hover {
     .r-ear, .l-ear {
@@ -98,17 +101,9 @@ $t-time: .5s;
       transform: rotate(0);
     }
 
-    .l-frame, .r-frame {
-      top: 52%;
-    }
-
     .r-eye, .l-eye {
       top: 62%;
-      height: 4%;
-    }
-
-    .bridge {
-      top: 57%;
+      height: 7px;
     }
   }
 }
