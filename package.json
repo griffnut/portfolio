@@ -48,7 +48,7 @@
     "enzyme-adapter-react-16": "^1.15.3",
     "mini-css-extract-plugin": "^0.8.2",
     "mocha": "^6.2.3",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "nodemon": "^1.19.4",
     "redux-devtools-extension": "^2.13.8",
     "sass-loader": "^8.0.2",
